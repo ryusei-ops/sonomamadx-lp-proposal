@@ -50,8 +50,6 @@ ol.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .ph-chip{display:inline-block;font-size:11px;background:rgba(255,255,255,.14);padding:3px 10px;border-radius:999px;margin-bottom:10px}
 .ph-h1{font-family:"Zen Kaku Gothic New",sans-serif;font-size:21px;font-weight:900;line-height:1.4;margin-top:6px}
 .ph-sub{font-size:12px;opacity:.9;margin:8px 0 10px;line-height:1.6}
-.ph-tags{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 10px}
-.ph-tags span{font-size:10.5px;background:rgba(255,255,255,.14);padding:3px 9px;border-radius:999px}
 .ph-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
 .ph-nums div{background:rgba(255,255,255,.1);border-radius:6px;padding:6px 4px;text-align:center}
 .ph-nums b{display:block;color:#f2c230;font-family:"IBM Plex Mono",monospace;font-size:14px}
@@ -113,10 +111,8 @@ footer a{color:var(--muted)}
 </div></li><li class="it"><div class="no">3</div><div class="body">
   <div class="where">1画面目</div>
   <div class="row"><span class="k">今</span><span>実績の数字がない（600社は最下部のみ）。タグが5個並ぶ</span></div>
-  <div class="row fix"><span class="k">直す</span><span>タグ5個を、強み3つに差し替える：<b>IT担当は不要／手書き・写真もそのまま／月5,980円から</b></span></div>
-  <div class="row fix"><span class="k">直す</span><span>ボタンの下に実績を1行入れる：<b>導入600社以上｜作成された帳票13万件</b></span></div>
-  <div class="note">タグはなくすより、中身を「相談をためらう理由の打ち消し」に変えるほうが効きます。並べるのは3つまでにしてください。</div>
-
+  <div class="row fix"><span class="k">直す</span><span>タグ5個を外し、ボタンの下に1行だけ入れる：<b>導入600社以上｜作成された帳票13万件</b></span></div>
+  
 </div></li><li class="it"><div class="no">4</div><div class="body">
   <div class="where">フォームの「ご用件」</div>
   <div class="row"><span class="k">今</span><span>4択チェック。3つが最初からON</span></div>
@@ -159,7 +155,6 @@ footer a{color:var(--muted)}
   <div class="mocks">
     <div class="mock"><div class="phone">
   <div class="ph-h1">工場の日報・検査記録を、そのままスマホ入力に。</div><div class="ph-sub">今の紙の見た目のまま。翌営業日から使えます。</div>
-  <div class="ph-tags"><span>IT担当は不要</span><span>手書き・写真もそのまま</span><span>月5,980円から</span></div>
   <div class="ph-img">【画像】紙の作業日報 → 同じ見た目の画面（現LP「導入前／導入後」の画像を流用）</div><div class="ph-b1">今の帳票を送って無料相談</div>
   <div class="ph-proof">導入600社以上｜作成された帳票13万件</div>
   <div class="ph-next">↓ 2画面目の先頭：導入企業のロゴ帯（1行）</div>
@@ -168,18 +163,16 @@ footer a{color:var(--muted)}
       <dl class="copy">
         <dt>見出し（1文）</dt><dd>工場の日報・検査記録を、そのままスマホ入力に。</dd>
         <dt>補足（1行）</dt><dd>今の紙の見た目のまま。翌営業日から使えます。</dd>
-        <dt>強み（3つ・短いチップ）</dt><dd>IT担当は不要／手書き・写真もそのまま／月5,980円から</dd>
         <dt>画像</dt><dd>紙の作業日報 → 同じ見た目の画面。イメージ写真は使わない</dd>
         <dt>ボタン（1つ）</dt><dd>今の帳票を送って無料相談 → #contact-form</dd>
         <dt>実績（1行・小さく）</dt><dd>導入600社以上｜作成された帳票13万件</dd>
-        <dt>入れないもの</dt><dd>箇条書き・2つ目のボタン・「3分動画」。強みは3つまで（4つ以上は読まれません）</dd>
+        <dt>入れないもの</dt><dd>タグ・箇条書き・2つ目のボタン・料金。「3分動画」「月5,980円〜」は2画面目以降に</dd>
       </dl>
-      <p class="note">強みの3つは「相談をためらう理由」から選んでいます。人（IT担当がいない）・様式（今の帳票を変えたくない）・費用（高いのでは）の3つです。要素は5つのままで、タグの位置に3つ入ります。</p>
     </div>
   </div>
 
   <h3>B-2　ページの構成（上から順に）</h3>
-  <div class="scroll-x"><table><thead><tr><th>順</th><th>セクション</th><th>内容</th><th>元になるもの</th><th>量</th></tr></thead><tbody><tr><td class="c">1</td><th>1画面目</th><td>見出し1文・補足1行・強み3つ・製品画像・ボタン1つ・実績1行（B-1の文言案をそのまま）</td><td class="src">新規</td><td class="c">1画面</td></tr><tr><td class="c">2</td><th>導入企業のロゴ帯</th><td>現LP最下部のロゴ画像を1行で。見出しは「導入企業」だけ</td><td class="src">現LP最下部のロゴ画像</td><td class="c">0.5画面</td></tr><tr><td class="c">3</td><th>フォーム（短縮版）</th><td>会社名／お名前／メール／相談内容（1択・任意）／帳票の写真（任意・「スマホで撮った写真でOK」）／同意。ボタン「無料で相談する（1分で完了）」</td><td class="src">新規（項目は現フォームの流用）</td><td class="c">1画面</td></tr><tr><td class="c">4</td><th>導入前 → 導入後の画面</th><td>紙の作業日報と、同じ見た目の画面を並べた画像1枚＋3行</td><td class="src">現LP「そのままDXとは」の画像</td><td class="c">1画面</td></tr><tr><td class="c">5</td><th>導入事例 3社</th><td>1社1カード。社名・業種・数字1つ・一言（各150字以内）。大手自動車メーカーは「国内大手自動車メーカーの工場でも採用」の1行。詳細は導入事例ページへリンク</td><td class="src">現LP「導入事例」を圧縮</td><td class="c">2画面</td></tr><tr><td class="c">6</td><th>できること 4つ</th><td>アイコン＋1行：今の帳票のまま／手書き・写真もそのまま／多言語／測定器・基幹システム連携</td><td class="src">現LP「選ばれる理由」8つを4つに</td><td class="c">1.5画面</td></tr><tr><td class="c">7</td><th>料金</th><td>「月5,980円から。まず1帳票・1部署から」＋Starterのカード1枚。Basic／Plusは折りたたみ</td><td class="src">現LP「料金プラン」</td><td class="c">1.5画面</td></tr><tr><td class="c">8</td><th>流れ 3ステップ</th><td>送る → 翌営業日に試作 → そのまま運用</td><td class="src">現LP「導入後の流れ」5→3</td><td class="c">1画面</td></tr><tr><td class="c">9</td><th>よくある質問 4問</th><td>IT担当がいなくても使えるか／今の帳票を変える必要があるか／費用と期間／セキュリティ</td><td class="src">現LP FAQ 6→4</td><td class="c">1画面</td></tr><tr><td class="c">10</td><th>フォーム（再掲）</th><td>3と同じ</td><td class="src"></td><td class="c">1.5画面</td></tr></tbody></table></div>
+  <div class="scroll-x"><table><thead><tr><th>順</th><th>セクション</th><th>内容</th><th>元になるもの</th><th>量</th></tr></thead><tbody><tr><td class="c">1</td><th>1画面目</th><td>見出し1文・補足1行・製品画像・ボタン1つ・実績1行（下の文言案をそのまま）</td><td class="src">新規</td><td class="c">1画面</td></tr><tr><td class="c">2</td><th>導入企業のロゴ帯</th><td>現LP最下部のロゴ画像を1行で。見出しは「導入企業」だけ</td><td class="src">現LP最下部のロゴ画像</td><td class="c">0.5画面</td></tr><tr><td class="c">3</td><th>フォーム（短縮版）</th><td>会社名／お名前／メール／相談内容（1択・任意）／帳票の写真（任意・「スマホで撮った写真でOK」）／同意。ボタン「無料で相談する（1分で完了）」</td><td class="src">新規（項目は現フォームの流用）</td><td class="c">1画面</td></tr><tr><td class="c">4</td><th>導入前 → 導入後の画面</th><td>紙の作業日報と、同じ見た目の画面を並べた画像1枚＋3行</td><td class="src">現LP「そのままDXとは」の画像</td><td class="c">1画面</td></tr><tr><td class="c">5</td><th>導入事例 3社</th><td>1社1カード。社名・業種・数字1つ・一言（各150字以内）。大手自動車メーカーは「国内大手自動車メーカーの工場でも採用」の1行。詳細は導入事例ページへリンク</td><td class="src">現LP「導入事例」を圧縮</td><td class="c">2画面</td></tr><tr><td class="c">6</td><th>できること 4つ</th><td>アイコン＋1行：今の帳票のまま／手書き・写真もそのまま／多言語／測定器・基幹システム連携</td><td class="src">現LP「選ばれる理由」8つを4つに</td><td class="c">1.5画面</td></tr><tr><td class="c">7</td><th>料金</th><td>「月5,980円から。まず1帳票・1部署から」＋Starterのカード1枚。Basic／Plusは折りたたみ</td><td class="src">現LP「料金プラン」</td><td class="c">1.5画面</td></tr><tr><td class="c">8</td><th>流れ 3ステップ</th><td>送る → 翌営業日に試作 → そのまま運用</td><td class="src">現LP「導入後の流れ」5→3</td><td class="c">1画面</td></tr><tr><td class="c">9</td><th>よくある質問 4問</th><td>IT担当がいなくても使えるか／今の帳票を変える必要があるか／費用と期間／セキュリティ</td><td class="src">現LP FAQ 6→4</td><td class="c">1画面</td></tr><tr><td class="c">10</td><th>フォーム（再掲）</th><td>3と同じ</td><td class="src"></td><td class="c">1.5画面</td></tr></tbody></table></div>
 
   <h3>B-3　導入事例 3社の書き方（5の中身）</h3>
   <div class="cases"><div class="case"><div class="cn">シンニチ工業<span>ステンレスパイプ製造</span></div><div class="cnum">2ヶ月で10書類を電子化</div><div class="cq">現場が自分から「勝手にDX」を始めた</div></div><div class="case"><div class="cn">岡西鉄工所<span>金属加工</span></div><div class="cnum">見積回答が24時間以内に</div><div class="cq">ベトナム語表示で外国人スタッフも入力</div></div><div class="case"><div class="cn">大成製作所<span>合板製造</span></div><div class="cnum">事務所の転記ゼロ</div><div class="cq">段ボールの紙の山が消えた</div></div></div>
@@ -197,7 +190,6 @@ footer a{color:var(--muted)}
   <div class="mocks">
     <div class="mock"><div class="phone">
   <div class="ph-h1">紙の日報を、そのままスマホで入力するアプリ。</div><div class="ph-sub">写真・手書き・音声。現場に合う入れ方を選べます。</div>
-  <div class="ph-tags"><span>様式はそのまま</span><span>覚えることは不要</span><span>月5,980円から</span></div>
   <div class="ph-img">【画像】1つの帳票の「紙 → 画面」</div><div class="ph-b1">今の帳票を送って無料相談</div>
   <div class="ph-proof">導入600社以上｜作成された帳票13万件</div>
   <div class="ph-next">↓ 2画面目の先頭：導入企業のロゴ帯（1行）</div>
@@ -206,7 +198,6 @@ footer a{color:var(--muted)}
       <dl class="copy">
         <dt>見出し（1文）</dt><dd>紙の日報を、そのままスマホで入力するアプリ。</dd>
         <dt>補足（1行）</dt><dd>写真・手書き・音声。現場に合う入れ方を選べます。</dd>
-        <dt>強み（3つ・短いチップ）</dt><dd>様式はそのまま／覚えることは不要／月5,980円から</dd>
         <dt>画像</dt><dd>1つの帳票の「紙 → 画面」。入力方法のアイコンは2画面目以降に</dd>
         <dt>ボタン（1つ）</dt><dd>今の帳票を送って無料相談 → #contact-form</dd>
         <dt>実績（1行・小さく）</dt><dd>製造業LPと同じ</dd>
@@ -214,7 +205,7 @@ footer a{color:var(--muted)}
     </div>
   </div>
   <h3>C-2　構成（上から順に）</h3>
-  <div class="scroll-x"><table><thead><tr><th>セクション</th><th>内容</th></tr></thead><tbody><tr><th>1画面目</th><td>C-1の文言案をそのまま（強み3つを含む）</td></tr><tr><th>導入企業のロゴ帯</th><td>製造業LPと同じ（1画面目のすぐ下）</td></tr><tr><th>フォーム（短縮版）</th><td>製造業LPと同じ</td></tr><tr><th>入れ方10通りの一覧</th><td>アイコン＋名称だけで1画面。説明文は付けない</td></tr><tr><th>写真・手書き・音声</th><td>この3つだけ、各1画面（画像1枚＋「こんな場面で」1行）。残り7つは一覧に含める</td></tr><tr><th>入力したあと</th><td>画像1枚＋「入力した瞬間にデータ。集計・CSV・基幹システム連携」で1画面</td></tr><tr><th>料金・流れ・フォーム</th><td>製造業LPと同じ</td></tr><tr><th>よくある質問 4問</th><td>手書きの認識精度は／写真は何枚まで／音声はうるさい現場でも／費用と期間</td></tr></tbody></table></div>
+  <div class="scroll-x"><table><thead><tr><th>セクション</th><th>内容</th></tr></thead><tbody><tr><th>1画面目</th><td>下の文言案をそのまま</td></tr><tr><th>導入企業のロゴ帯</th><td>製造業LPと同じ（1画面目のすぐ下）</td></tr><tr><th>フォーム（短縮版）</th><td>製造業LPと同じ</td></tr><tr><th>入れ方10通りの一覧</th><td>アイコン＋名称だけで1画面。説明文は付けない</td></tr><tr><th>写真・手書き・音声</th><td>この3つだけ、各1画面（画像1枚＋「こんな場面で」1行）。残り7つは一覧に含める</td></tr><tr><th>入力したあと</th><td>画像1枚＋「入力した瞬間にデータ。集計・CSV・基幹システム連携」で1画面</td></tr><tr><th>料金・流れ・フォーム</th><td>製造業LPと同じ</td></tr><tr><th>よくある質問 4問</th><td>手書きの認識精度は／写真は何枚まで／音声はうるさい現場でも／費用と期間</td></tr></tbody></table></div>
   <h3>C-3　現LPから削る・圧縮するもの</h3>
   <div class="scroll-x"><table><thead><tr><th>現LPのセクション</th><th>どうする</th></tr></thead><tbody><tr><th>入力が止まる場面 6つ</th><td>3つのチップに：「PCが開けない現場」「様式を変えられない帳票」「日本語が読めないスタッフ」</td></tr><tr><th>入力機能の詳細 10個</th><td>3つ（写真・手書き・音声）以外は一覧へ</td></tr><tr><th>教える手間</th><td>1画面目の補足「覚えることはありません」に統合</td></tr><tr><th>対応できる帳票</th><td>1行のチップに：日報・点検表・検査記録・作業報告・ヒヤリハット・出荷管理</td></tr><tr><th>今のやり方との違い（表）</th><td>削除</td></tr></tbody></table></div>
 </section>
