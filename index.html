@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>そのままDX LP修正案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{--bg:#f6f5f0;--panel:#fff;--panel-2:#eeece4;--ink:#17223a;--ink-2:#414d68;--muted:#76809a;--line:#d9d8ce;--navy:#143a6b;--amber:#b7810a;--amber-soft:#fdf1cf;--amber-strong:#f2c230;--green:#2f7a4f;--green-soft:#e0f0e6;--code:#e8eef8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11151e;--panel:#1a2030;--panel-2:#222a3d;--ink:#e9ecf3;--ink-2:#b9c1d2;--muted:#8d97ad;--line:#2d3649;--navy:#9dbdf0;--amber:#f2c14e;--amber-soft:#3a2f10;--amber-strong:#f2c230;--green:#7fd1a0;--green-soft:#1c3427;--code:#26324a}}
+:root[data-theme="dark"]{--bg:#11151e;--panel:#1a2030;--panel-2:#222a3d;--ink:#e9ecf3;--ink-2:#b9c1d2;--muted:#8d97ad;--line:#2d3649;--navy:#9dbdf0;--amber:#f2c14e;--amber-soft:#3a2f10;--amber-strong:#f2c230;--green:#7fd1a0;--green-soft:#1c3427;--code:#26324a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;font-size:15px;line-height:1.75;padding-inline:16px;padding-block:0 64px}
+h1,h2,h3{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:30px;font-weight:900;color:var(--navy);margin:8px 0 10px}
+h2{font-size:22px;font-weight:900;color:var(--navy)}
+h3{font-size:16.5px;font-weight:700;margin:26px 0 8px}
+p{margin:0}
+code{font-family:"IBM Plex Mono",monospace;background:var(--code);padding:1px 6px;border-radius:3px;font-size:13.5px}
+.wrap{max-width:900px;margin:0 auto}
+header.top{padding-block:40px 22px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted);font-family:"IBM Plex Mono",monospace}
+.lead{color:var(--ink-2);max-width:680px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.meta span{font-size:12.5px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink-2)}
+nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
+nav.jump ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 16px;flex-wrap:wrap}
+nav.jump a{font-size:13px;color:var(--ink-2);text-decoration:none;border-bottom:2px solid transparent;padding:4px 2px}
+nav.jump a:hover,nav.jump a:focus-visible{color:var(--navy);border-bottom-color:var(--amber-strong);outline:none}
+section{padding-block:32px;border-bottom:1px solid var(--line)}
+.kicker{font-size:12px;letter-spacing:.14em;color:var(--amber);font-weight:700;font-family:"IBM Plex Mono",monospace;margin-bottom:4px}
+.sub{color:var(--ink-2);margin:6px 0 14px;max-width:700px}
+/* 修正リスト */
+ol.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.it{display:grid;grid-template-columns:44px 1fr;background:var(--panel);border:1px solid var(--line)}
+.it .no{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--amber);font-size:15px;padding:14px 0 0 14px}
+.it .body{padding:12px 16px 12px 4px}
+.where{font-weight:700;font-family:"Zen Kaku Gothic New",sans-serif;font-size:15.5px;margin-bottom:6px}
+.row{display:grid;grid-template-columns:44px 1fr;gap:8px;font-size:14px;padding:3px 0}
+.row .k{font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:700;padding-top:4px}
+.row.fix{background:var(--amber-soft);margin:4px -8px 0;padding:6px 8px;border-radius:4px}
+.row.fix .k{color:var(--amber)}
+.note{font-size:13px;color:var(--muted);margin-top:6px}
+/* モック */
+.mocks{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:12px}
+.mock h3{margin-top:0}
+.phone{width:100%;max-width:340px;background:#123064;color:#fff;border-radius:22px;padding:22px 18px 18px;border:6px solid #2a2f3a}
+.ph-chip{display:inline-block;font-size:11px;background:rgba(255,255,255,.14);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.ph-h1{font-family:"Zen Kaku Gothic New",sans-serif;font-size:21px;font-weight:900;line-height:1.4;margin-top:6px}
+.ph-sub{font-size:12px;opacity:.9;margin:8px 0 10px;line-height:1.6}
+.ph-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.ph-nums div{background:rgba(255,255,255,.1);border-radius:6px;padding:6px 4px;text-align:center}
+.ph-nums b{display:block;color:#f2c230;font-family:"IBM Plex Mono",monospace;font-size:14px}
+.ph-nums span{font-size:9.5px;opacity:.85}
+.ph-img{background:#fff;color:#123064;border-radius:8px;padding:14px 10px;font-size:11.5px;text-align:center;line-height:1.5;margin:14px 0 12px;min-height:120px;display:flex;align-items:center;justify-content:center}
+.ph-b1{background:#f2c230;color:#123064;font-weight:700;text-align:center;border-radius:8px;padding:10px;font-size:13px}
+.ph-proof{text-align:center;font-size:11px;opacity:.8;margin-top:10px}
+.ph-next{margin-top:10px;border-top:1px dashed rgba(255,255,255,.4);padding-top:8px;font-size:11px;opacity:.75;text-align:center}
+.copy{margin-top:12px;font-size:13.5px;background:var(--panel);border:1px solid var(--line);padding:10px 14px}
+.copy dt{font-weight:700;color:var(--muted);font-size:11.5px;letter-spacing:.08em;margin-top:6px}
+.copy dd{margin:0}
+/* 表 */
+.scroll-x{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--panel);margin-top:12px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border:1px solid var(--line)}
+th{background:var(--panel-2);font-weight:700;white-space:nowrap}
+thead th{font-size:12.5px;letter-spacing:.06em}
+td.c{text-align:center;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+td.src{color:var(--muted);font-size:13px}
+/* 事例カード */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.case{background:var(--panel);border:1px solid var(--line);padding:12px 14px;font-size:13.5px}
+.cn{font-weight:700} .cn span{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.cnum{color:var(--navy);font-weight:700;font-size:16px;margin:6px 0 2px;font-family:"Zen Kaku Gothic New",sans-serif}
+.cq{color:var(--ink-2)}
+.target{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.target div{background:var(--panel);border:1px solid var(--line);padding:12px 14px}
+.target .k{font-size:12px;color:var(--muted)} .target .v{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:20px;color:var(--navy)}
+.done{background:var(--green-soft);border-left:4px solid var(--green);padding:12px 16px;margin-top:14px;font-size:14px}
+footer{padding-top:24px;font-size:12.5px;color:var(--muted)}
+footer a{color:var(--muted)}
+@media (max-width:760px){ .mocks,.cases,.target{grid-template-columns:1fr} h1{font-size:26px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Leit On → codeless technology 様　｜　2026-09-27</div>
+  <h1>そのままDX LP修正案</h1>
+  <p class="lead">製造業LPと入力方法LPの修正内容です。上から順に進めれば完成します。A は現LPのまま半日で終わる修正、B は短縮版LPの新規作成です。</p>
+  <div class="meta"><span>対象：製造業LP／入力方法LP</span><span>スマホ表示が基準（クリックの95%がスマホ）</span></div>
+</header>
+<nav class="jump"><ul><li><a href="#a">A 今すぐ直す</a></li><li><a href="#b">B 短縮版LP（製造業）</a></li><li><a href="#c">C 入力方法LP</a></li><li><a href="#d">完成後</a></li></ul></nav>
+
+<section id="a">
+  <div class="kicker">A</div>
+  <h2>今すぐ直す（現LPのまま・両LP共通）</h2>
+  <p class="sub">半日で終わります。1〜3だけでもフォームに着く人が増えます。</p>
+  <ol class="list"><li class="it"><div class="no">1</div><div class="body">
+  <div class="where">すべての「無料相談」ボタンの飛び先</div>
+  <div class="row"><span class="k">今</span><span>href=&quot;#contact&quot;（フォームの1.4画面手前の見出しに着く）</span></div>
+  <div class="row fix"><span class="k">直す</span><span><code>href="#contact-form"</code> に変える（既にページ内にあるID）</span></div>
+  <div class="note">押した人がフォームに直接着くようになります。</div>
+</div></li><li class="it"><div class="no">2</div><div class="body">
+  <div class="where">画面下の固定ボタン</div>
+  <div class="row"><span class="k">今</span><span>2本（導入事例を見る／その一枚を無料相談する）</span></div>
+  <div class="row fix"><span class="k">直す</span><span>1本だけにする：<b>「無料で相談する（1分）」</b> → #contact-form</span></div>
+  
+</div></li><li class="it"><div class="no">3</div><div class="body">
+  <div class="where">1画面目</div>
+  <div class="row"><span class="k">今</span><span>実績の数字がない（600社は最下部のみ）。タグが5個並ぶ</span></div>
+  <div class="row fix"><span class="k">直す</span><span>タグ5個を外し、ボタンの下に1行だけ入れる：<b>導入600社以上｜作成された帳票13万件</b></span></div>
+  
+</div></li><li class="it"><div class="no">4</div><div class="body">
+  <div class="where">フォームの「ご用件」</div>
+  <div class="row"><span class="k">今</span><span>4択チェック。3つが最初からON</span></div>
+  <div class="row fix"><span class="k">直す</span><span>初期チェックをすべてOFF。1択（相談したい／資料がほしい／試してみたい）にする</span></div>
+  
+</div></li><li class="it"><div class="no">5</div><div class="body">
+  <div class="where">フォームの同意チェック</div>
+  <div class="row"><span class="k">今</span><span>必須なのに「必須」表示がない</span></div>
+  <div class="row fix"><span class="k">直す</span><span>「必須」の表示を付ける</span></div>
+  
+</div></li><li class="it"><div class="no">6</div><div class="body">
+  <div class="where">フォームの送信ボタン</div>
+  <div class="row"><span class="k">今</span><span>この内容で送信する</span></div>
+  <div class="row fix"><span class="k">直す</span><span><b>「無料で相談する（1分で完了）」</b></span></div>
+  
+</div></li><li class="it"><div class="no">7</div><div class="body">
+  <div class="where">送信後のメッセージ</div>
+  <div class="row"><span class="k">今</span><span>完了の表示のみ</span></div>
+  <div class="row fix"><span class="k">直す</span><span>「翌営業日までに担当から返信します」「しつこい営業はしません」を入れる</span></div>
+  
+</div></li><li class="it"><div class="no">8</div><div class="body">
+  <div class="where">導入企業のロゴ画像</div>
+  <div class="row"><span class="k">今</span><span>最下部（フォームの直前）にだけある</span></div>
+  <div class="row fix"><span class="k">直す</span><span>1画面目のすぐ下（2画面目の先頭）に移動する。1行のロゴ帯として、見出しは「導入企業」だけ</span></div>
+  <div class="note">LION・NTTコミュニケーションズ・KEYENCE などのロゴは、数字より先に信頼が伝わります。</div>
+</div></li><li class="it"><div class="no">9</div><div class="body">
+  <div class="where">ページに入っているタグ</div>
+  <div class="row"><span class="k">今</span><span>AdSense／旧GA4タグ（G-H0D1MQLSFJ）／reCAPTCHAが3回読み込み／開いた直後のローディング演出</span></div>
+  <div class="row fix"><span class="k">直す</span><span>この4つをLPから外す</span></div>
+  <div class="note">AdSenseが有効だと、広告で呼んだ人に他社の広告が出る可能性があります。読み込み10.6MB→3MB以内が目安です。</div>
+</div></li></ol>
+</section>
+
+<section id="b">
+  <div class="kicker">B</div>
+  <h2>短縮版LPを新しいURLで作る（製造業LPから）</h2>
+  <p class="sub">既存LPはそのまま残してください。完成したら広告の飛び先を切り替えます。目安は全体で12〜15画面（スマホ）・3,500字以内・3MB以内です。</p>
+
+  <h3>B-1　1画面目（要素は5つだけ。文言はこのまま使えます）</h3>
+  <div class="mocks">
+    <div class="mock"><div class="phone">
+  <div class="ph-h1">工場の日報・検査記録を、そのままスマホ入力に。</div><div class="ph-sub">今の紙の見た目のまま。翌営業日から使えます。</div>
+  <div class="ph-img">【画像】紙の作業日報 → 同じ見た目の画面（現LP「導入前／導入後」の画像を流用）</div><div class="ph-b1">今の帳票を送って無料相談</div>
+  <div class="ph-proof">導入600社以上｜作成された帳票13万件</div>
+  <div class="ph-next">↓ 2画面目の先頭：導入企業のロゴ帯（1行）</div>
+</div></div>
+    <div>
+      <dl class="copy">
+        <dt>見出し（1文）</dt><dd>工場の日報・検査記録を、そのままスマホ入力に。</dd>
+        <dt>補足（1行）</dt><dd>今の紙の見た目のまま。翌営業日から使えます。</dd>
+        <dt>画像</dt><dd>紙の作業日報 → 同じ見た目の画面。イメージ写真は使わない</dd>
+        <dt>ボタン（1つ）</dt><dd>今の帳票を送って無料相談 → #contact-form</dd>
+        <dt>実績（1行・小さく）</dt><dd>導入600社以上｜作成された帳票13万件</dd>
+        <dt>入れないもの</dt><dd>タグ・箇条書き・2つ目のボタン・料金。「3分動画」「月5,980円〜」は2画面目以降に</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h3>B-2　ページの構成（上から順に）</h3>
+  <div class="scroll-x"><table><thead><tr><th>順</th><th>セクション</th><th>内容</th><th>元になるもの</th><th>量</th></tr></thead><tbody><tr><td class="c">1</td><th>1画面目</th><td>見出し1文・補足1行・製品画像・ボタン1つ・実績1行（下の文言案をそのまま）</td><td class="src">新規</td><td class="c">1画面</td></tr><tr><td class="c">2</td><th>導入企業のロゴ帯</th><td>現LP最下部のロゴ画像を1行で。見出しは「導入企業」だけ</td><td class="src">現LP最下部のロゴ画像</td><td class="c">0.5画面</td></tr><tr><td class="c">3</td><th>フォーム（短縮版）</th><td>会社名／お名前／メール／相談内容（1択・任意）／帳票の写真（任意・「スマホで撮った写真でOK」）／同意。ボタン「無料で相談する（1分で完了）」</td><td class="src">新規（項目は現フォームの流用）</td><td class="c">1画面</td></tr><tr><td class="c">4</td><th>導入前 → 導入後の画面</th><td>紙の作業日報と、同じ見た目の画面を並べた画像1枚＋3行</td><td class="src">現LP「そのままDXとは」の画像</td><td class="c">1画面</td></tr><tr><td class="c">5</td><th>導入事例 3社</th><td>1社1カード。社名・業種・数字1つ・一言（各150字以内）。大手自動車メーカーは「国内大手自動車メーカーの工場でも採用」の1行。詳細は導入事例ページへリンク</td><td class="src">現LP「導入事例」を圧縮</td><td class="c">2画面</td></tr><tr><td class="c">6</td><th>できること 4つ</th><td>アイコン＋1行：今の帳票のまま／手書き・写真もそのまま／多言語／測定器・基幹システム連携</td><td class="src">現LP「選ばれる理由」8つを4つに</td><td class="c">1.5画面</td></tr><tr><td class="c">7</td><th>料金</th><td>「月5,980円から。まず1帳票・1部署から」＋Starterのカード1枚。Basic／Plusは折りたたみ</td><td class="src">現LP「料金プラン」</td><td class="c">1.5画面</td></tr><tr><td class="c">8</td><th>流れ 3ステップ</th><td>送る → 翌営業日に試作 → そのまま運用</td><td class="src">現LP「導入後の流れ」5→3</td><td class="c">1画面</td></tr><tr><td class="c">9</td><th>よくある質問 4問</th><td>IT担当がいなくても使えるか／今の帳票を変える必要があるか／費用と期間／セキュリティ</td><td class="src">現LP FAQ 6→4</td><td class="c">1画面</td></tr><tr><td class="c">10</td><th>フォーム（再掲）</th><td>3と同じ</td><td class="src"></td><td class="c">1.5画面</td></tr></tbody></table></div>
+
+  <h3>B-3　導入事例 3社の書き方（5の中身）</h3>
+  <div class="cases"><div class="case"><div class="cn">シンニチ工業<span>ステンレスパイプ製造</span></div><div class="cnum">2ヶ月で10書類を電子化</div><div class="cq">現場が自分から「勝手にDX」を始めた</div></div><div class="case"><div class="cn">岡西鉄工所<span>金属加工</span></div><div class="cnum">見積回答が24時間以内に</div><div class="cq">ベトナム語表示で外国人スタッフも入力</div></div><div class="case"><div class="cn">大成製作所<span>合板製造</span></div><div class="cnum">事務所の転記ゼロ</div><div class="cq">段ボールの紙の山が消えた</div></div></div>
+  <p class="note" style="margin-top:8px">1社＝社名・業種・数字1つ・一言だけ。写真は各1枚まで。大手自動車メーカーは「国内大手自動車メーカーの工場でも採用」の1行で入れる。</p>
+
+  <h3>B-4　現LPから削る・圧縮するもの</h3>
+  <div class="scroll-x"><table><thead><tr><th>現LPのセクション</th><th>どうする</th></tr></thead><tbody><tr><th>製造業の課題 6つ（約1,000字）</th><td>1行のチップに：「こんな紙、ありませんか？ 日報／検査記録／作業指示書／ヒヤリハット／押印書類」</td></tr><tr><th>選ばれる理由 8つ（イメージ写真8枚）</th><td>「できること4つ」に統合。写真は使わない</td></tr><tr><th>導入効果シミュレーション</th><td>別ページに分けて「効果を試算する」ボタンでリンク</td></tr><tr><th>他ツールとの比較表</th><td>削除</td></tr><tr><th>相談セクション（01/02/03のリスト・600社・ロゴ）</th><td>削除（数字とロゴは1画面目へ）</td></tr><tr><th>よくある質問 6問</th><td>4問に</td></tr></tbody></table></div>
+</section>
+
+<section id="c">
+  <div class="kicker">C</div>
+  <h2>入力方法LP（製造業LPの型を流用）</h2>
+  <p class="sub">構成は製造業LPと同じ型です。違うところだけ書きます。</p>
+  <h3>C-1　1画面目</h3>
+  <div class="mocks">
+    <div class="mock"><div class="phone">
+  <div class="ph-h1">紙の日報を、そのままスマホで入力するアプリ。</div><div class="ph-sub">写真・手書き・音声。現場に合う入れ方を選べます。</div>
+  <div class="ph-img">【画像】1つの帳票の「紙 → 画面」</div><div class="ph-b1">今の帳票を送って無料相談</div>
+  <div class="ph-proof">導入600社以上｜作成された帳票13万件</div>
+  <div class="ph-next">↓ 2画面目の先頭：導入企業のロゴ帯（1行）</div>
+</div></div>
+    <div>
+      <dl class="copy">
+        <dt>見出し（1文）</dt><dd>紙の日報を、そのままスマホで入力するアプリ。</dd>
+        <dt>補足（1行）</dt><dd>写真・手書き・音声。現場に合う入れ方を選べます。</dd>
+        <dt>画像</dt><dd>1つの帳票の「紙 → 画面」。入力方法のアイコンは2画面目以降に</dd>
+        <dt>ボタン（1つ）</dt><dd>今の帳票を送って無料相談 → #contact-form</dd>
+        <dt>実績（1行・小さく）</dt><dd>製造業LPと同じ</dd>
+      </dl>
+    </div>
+  </div>
+  <h3>C-2　構成（上から順に）</h3>
+  <div class="scroll-x"><table><thead><tr><th>セクション</th><th>内容</th></tr></thead><tbody><tr><th>1画面目</th><td>下の文言案をそのまま</td></tr><tr><th>導入企業のロゴ帯</th><td>製造業LPと同じ（1画面目のすぐ下）</td></tr><tr><th>フォーム（短縮版）</th><td>製造業LPと同じ</td></tr><tr><th>入れ方10通りの一覧</th><td>アイコン＋名称だけで1画面。説明文は付けない</td></tr><tr><th>写真・手書き・音声</th><td>この3つだけ、各1画面（画像1枚＋「こんな場面で」1行）。残り7つは一覧に含める</td></tr><tr><th>入力したあと</th><td>画像1枚＋「入力した瞬間にデータ。集計・CSV・基幹システム連携」で1画面</td></tr><tr><th>料金・流れ・フォーム</th><td>製造業LPと同じ</td></tr><tr><th>よくある質問 4問</th><td>手書きの認識精度は／写真は何枚まで／音声はうるさい現場でも／費用と期間</td></tr></tbody></table></div>
+  <h3>C-3　現LPから削る・圧縮するもの</h3>
+  <div class="scroll-x"><table><thead><tr><th>現LPのセクション</th><th>どうする</th></tr></thead><tbody><tr><th>入力が止まる場面 6つ</th><td>3つのチップに：「PCが開けない現場」「様式を変えられない帳票」「日本語が読めないスタッフ」</td></tr><tr><th>入力機能の詳細 10個</th><td>3つ（写真・手書き・音声）以外は一覧へ</td></tr><tr><th>教える手間</th><td>1画面目の補足「覚えることはありません」に統合</td></tr><tr><th>対応できる帳票</th><td>1行のチップに：日報・点検表・検査記録・作業報告・ヒヤリハット・出荷管理</td></tr><tr><th>今のやり方との違い（表）</th><td>削除</td></tr></tbody></table></div>
+</section>
+
+<section id="d">
+  <div class="kicker">完成後</div>
+  <h2>できたらURLをください</h2>
+  <div class="done">修正の間は、広告の飛び先をトップページ（sonomamadx.com）に切り替えてテストします。短縮版LPができたら新URLに切り替えます（即日）。効果は「フォームを見た人の割合」で判定し、週次で共有します。</div>
+  <div class="target">
+    <div><div class="k">フォームを見た人</div><div class="v">2.6% → 15%</div></div>
+    <div><div class="k">入力を始めた人</div><div class="v">0% → 5%</div></div>
+    <div><div class="k">送信</div><div class="v">0% → 1%</div></div>
+  </div>
+  <p class="note" style="margin-top:10px">広告側では、広告下の小リンクの飛び先修正と「無料相談」ボタンのクリック計測を進めます。</p>
+</section>
+
+<footer>作成：Leit On 大石　｜　根拠データ（配信実績・スマホ表示の計測・競合比較）は <a href="https://docs.google.com/spreadsheets/d/1vYyn-b6HYkSwZpV1usVcBq2JCAYKNZ9fZp9Y2lyWNmk">別紙スプレッドシート</a> にまとめています</footer>
+</div>
+
+</body>
+</html>
