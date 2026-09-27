@@ -69,6 +69,8 @@ th{background:var(--panel-2);font-weight:700;white-space:nowrap}
 thead th{font-size:12.5px;letter-spacing:.06em}
 td.c{text-align:center;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
 td.src{color:var(--muted);font-size:13px}
+td.fix2{font-weight:700;background:var(--amber-soft)}
+td.when{font-size:13px;color:var(--muted);white-space:nowrap}
 /* 事例カード */
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
 .case{background:var(--panel);border:1px solid var(--line);padding:12px 14px;font-size:13.5px}
@@ -99,7 +101,7 @@ footer a{color:var(--muted)}
   <div class="meta"><span>対象：製造業LP／入力方法LP</span><span>スマホ表示が基準（クリックの95%がスマホ）</span></div>
   <p class="why">今の状態：広告から100人来て、フォームまで見るのは3人（2.6%）。ここを直します。</p>
 </header>
-<nav class="jump"><ul><li><a href="#a">A 今すぐ直す</a></li><li><a href="#b">B 短縮版LP（製造業）</a></li><li><a href="#c">C 入力方法LP</a></li><li><a href="#d">完成後</a></li><li><a href="#e">制作会社向けメモ</a></li></ul></nav>
+<nav class="jump"><ul><li><a href="#a">A 今すぐ直す</a></li><li><a href="#b">B 短縮版LP（製造業）</a></li><li><a href="#c">C 入力方法LP</a></li><li><a href="#d">D 見た目</a></li><li><a href="#e">完成後</a></li><li><a href="#f">制作会社向けメモ</a></li></ul></nav>
 
 <section id="a">
   <div class="kicker">A</div>
@@ -213,6 +215,13 @@ footer a{color:var(--muted)}
 </section>
 
 <section id="d">
+  <div class="kicker">D</div>
+  <h2>見た目で直すところ</h2>
+  <p class="sub">デザインの作り直しは不要です。問い合わせが出ていない原因は構成で、見た目ではありません。ただし以下の5点は、作業のついでに直せます。A＝今すぐ、B＝短縮版LPを作るときに。</p>
+  <div class="scroll-x"><table><thead><tr><th>箇所</th><th>今</th><th>直す</th><th>いつ・理由</th></tr></thead><tbody><tr><th>ヒーローの打ち消し線の一文</th><td>「現場が書いた記録が、経営には見えていない。」に打ち消し線。スマホでは画像と固定ボタンの裏に入り、「いない。」だけが見えています</td><td class="fix2">打ち消し線をやめて、ふつうの一文にする。または削除</td><td class="when">A｜表示の不具合に見えます</td></tr><tr><th>課題カードの絵文字アイコン</th><td>📝 📦 💰 🌐 などの絵文字</td><td class="fix2">線画アイコンにするか、アイコンをやめて見出しだけに</td><td class="when">A｜製造業の決裁者向けとしては軽く見えます</td></tr><tr><th>横スクロールが要る図</th><td>「← 横にスクロールできます →」と書かれた図が複数ある</td><td class="fix2">スマホでは縦に積む。積めない図は画像1枚に</td><td class="when">A｜スマホで横スクロールはほぼされません</td></tr><tr><th>全部が同じカード</th><td>課題・事例・理由・料金が、すべて同じ枠・同じ角丸・同じ影</td><td class="fix2">枠をつけるのは「事例」と「料金」だけ。ほかは枠なしで見出しと本文だけに</td><td class="when">B｜全部が同じ見た目だと、どれが大事か分かりません</td></tr><tr><th>トップページとの見た目の差</th><td>トップ＝黄色＋イラスト、LP＝紺＋写真。別のサービスに見える</td><td class="fix2">LPをトップの配色（白地＋黄色のアクセント）に寄せる</td><td class="when">B｜広告→LP→トップと見たときに、同じ会社だと分かります</td></tr></tbody></table></div>
+</section>
+
+<section id="e">
   <div class="kicker">完成後</div>
   <h2>できたら教えてください（広告の飛び先を切り替えます）</h2>
   <div class="done"><ul class="steps">
@@ -229,7 +238,7 @@ footer a{color:var(--muted)}
   <p class="note" style="margin-top:10px">広告側では、広告下の小リンクの飛び先修正と「無料相談」ボタンのクリック計測を進めます。</p>
 </section>
 
-<section id="e">
+<section id="f">
   <div class="kicker">制作会社向けメモ</div>
   <h2>読み込みまわりの修正（このままお渡しください）</h2>
   <p class="sub">A-8 の続きです。効果測定と表示速度のための修正で、見た目は変わりません。</p>
